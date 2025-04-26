@@ -5,7 +5,7 @@ import { CommonProject } from '../models/models';
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
-  //styleUrls: ['./file-upload.component.css'] // TODO
+  styleUrls: ['./file-upload.component.css']
 })
 export class FileUploadComponent {
   @Output() projectsLoaded = new EventEmitter<CommonProject[]>();

@@ -4,7 +4,7 @@ import { CommonProject } from '../models/models';
 @Component({
   selector: 'app-common-projects',
   templateUrl: './common-projects.component.html',
-  //styleUrls: ['./common-projects.component.css'] TODO
+  styleUrls: ['./common-projects.component.css']
 })
 export class CommonProjectsComponent {
   @Input() projects: CommonProject[] = [];
