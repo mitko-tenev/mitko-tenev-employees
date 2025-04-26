@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mitko-tenev-employees.Server", "mitko-tenev-employees.Server\mitko-tenev-employees.Server.csproj", "{794BC205-0E79-4BA3-9E7D-28FE70A92AF9}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "mitko-tenev-employees.client", "mitko-tenev-employees.client\mitko-tenev-employees.client.esproj", "{E65ED8FD-625E-41A0-B8A0-AFB1B443E12B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mitko_tenev_employees.Server.Tests", "mitko_tenev_employees.Server.Tests\mitko_tenev_employees.Server.Tests.csproj", "{0E1DC4C3-A44D-4B2E-B2AC-D041B434F7FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{E65ED8FD-625E-41A0-B8A0-AFB1B443E12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E65ED8FD-625E-41A0-B8A0-AFB1B443E12B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E65ED8FD-625E-41A0-B8A0-AFB1B443E12B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0E1DC4C3-A44D-4B2E-B2AC-D041B434F7FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E1DC4C3-A44D-4B2E-B2AC-D041B434F7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E1DC4C3-A44D-4B2E-B2AC-D041B434F7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E1DC4C3-A44D-4B2E-B2AC-D041B434F7FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
