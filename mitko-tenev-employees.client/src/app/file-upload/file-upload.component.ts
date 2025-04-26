@@ -40,6 +40,7 @@ export class FileUploadComponent {
         error: (error) => {
           this.errorMessage = 'Error processing file: ' + error.message;
           this.isLoading = false;
+          this.projectsLoaded.emit([]); // clean up existing projects to hide table
         }
       });
   }
