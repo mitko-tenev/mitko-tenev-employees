@@ -21,6 +21,10 @@
         [HttpPost("upload")]
         public async Task<IActionResult> Upload(IFormFile file)
         {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("Uploaded CSV file is empty");
+            }
 
             try
             {
