@@ -3,6 +3,20 @@ using mitko_tenev_employees.Server.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// TODO: Rename policy
+var EmployeesFrontendAppOrigins = "_employeesFrontendAppOrigins";
+var frontendUrl = builder.Configuration.GetValue<string>("FrontendUrl");
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: EmployeesFrontendAppOrigins,
+        policy =>
+        {
+            policy
+                .WithOrigins(frontendUrl)
+                .WithMethods("GET", "POST");
+        });
+});
+
 // Add services to the container.
 builder.Services.AddTransient<ICsvParserService, CsvParserService>();
 builder.Services.AddTransient<IEmployeeProjectService, EmployeeProjectService>();
@@ -23,6 +37,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(EmployeesFrontendAppOrigins);
 
 app.UseAuthorization();
 
