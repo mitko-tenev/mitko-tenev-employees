@@ -2,8 +2,10 @@
 {
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
+    using mitko_tenev_employees.Server.Exceptions;
     using mitko_tenev_employees.Server.Models;
     using mitko_tenev_employees.Server.Services.Interfaces;
+    using mitko_tenev_employees.Server.Utils;
 
     [Route("api/[controller]")]
     [ApiController]
@@ -23,7 +25,7 @@
         {
             if (file == null || file.Length == 0)
             {
-                return BadRequest("Uploaded CSV file is empty");
+                return BadRequest(new { error = ErrorUtils.EMPTY_CSV_PROVIDED });
             }
 
             try
@@ -33,9 +35,13 @@
 
                 return Ok(result);
             }
+            catch (InvalidCsvException ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Server error occurred: {ex.Message}");
+                return StatusCode(500, new { error = $"{ErrorUtils.SERVER_ERROR_OCCURRED}: {ex.Message}" } );
             }
         }
     }

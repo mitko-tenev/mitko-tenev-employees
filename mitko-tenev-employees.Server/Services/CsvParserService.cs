@@ -34,7 +34,7 @@
 
                 return employeeProjects;
             }
-            catch (TypeConverterException)
+            catch (Exception ex) when (ex is TypeConverterException || ex is MissingFieldException)
             {
                 throw new InvalidCsvException(ErrorUtils.INVALID_CSV_PROVIDED);
             }
