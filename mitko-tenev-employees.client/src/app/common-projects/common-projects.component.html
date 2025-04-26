@@ -1,0 +1,36 @@
+@if (projects.length > 0) {
+<div class="mt-4">
+  <h2>Longest Working Pair Results</h2>
+
+  <div class="summary">
+    <p>
+      <strong>Employee Pair:</strong> {{ projects[0].firstEmployeeID }} and {{ projects[0].secondEmployeeID }}
+    </p>
+    <p>
+      <strong>Total Days Worked Together:</strong> {{ getTotalDays() }}
+    </p>
+  </div>
+
+  <h3>Common Projects</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Employee ID #1</th>
+        <th>Employee ID #2</th>
+        <th>Project ID</th>
+        <th>Days Worked</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (project of projects; track $index) {
+      <tr>
+        <td>{{ project.firstEmployeeID }}</td>
+        <td>{{ project.secondEmployeeID }}</td>
+        <td>{{ project.projectID }}</td>
+        <td>{{ project.daysWorked }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+}
