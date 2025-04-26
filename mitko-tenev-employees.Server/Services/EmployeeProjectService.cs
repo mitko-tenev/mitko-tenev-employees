@@ -45,8 +45,8 @@
                             {
                                 result.Add(new CommonProject
                                 {
-                                    FirstEmployeeId = Math.Min(emp1.EmpID, emp2.EmpID), // Always put lower ID first for consistency
-                                    SecondEmployeeId = Math.Max(emp1.EmpID, emp2.EmpID),
+                                    FirstEmployeeID = Math.Min(emp1.EmpID, emp2.EmpID), // Always put lower ID first for consistency
+                                    SecondEmployeeID = Math.Max(emp1.EmpID, emp2.EmpID),
                                     ProjectID = projectId,
                                     DaysWorked = daysWorked
                                 });
@@ -62,7 +62,7 @@
         private List<CommonProject> FindLongestWorkingPairHelper(IEnumerable<CommonProject> commonProjects)
         {
             // Group by employee pairs
-            var pairGroups = commonProjects.GroupBy(c => new { c.FirstEmployeeId, c.SecondEmployeeId })
+            var pairGroups = commonProjects.GroupBy(c => new { c.FirstEmployeeID, c.SecondEmployeeID })
                 .Select(g => new
                 {
                     EmployeePair = g.Key,
@@ -72,8 +72,14 @@
                 .OrderByDescending(g => g.TotalDaysWorked)
                 .ToList();
 
+            var result = pairGroups.Any()
+                    ? pairGroups
+                        .First().Projects
+                        .OrderByDescending(x => x.DaysWorked)
+                        .ToList()
+                    : new List<CommonProject>();
 
-            return pairGroups.Any() ? pairGroups.First().Projects : new List<CommonProject>();
+            return result;
         }
     }
 }

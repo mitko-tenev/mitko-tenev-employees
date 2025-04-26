@@ -28,8 +28,8 @@
 
             try
             {
-                List<EmployeeProject> parsedEmployeeProjects = this._csvParserService.ParseCsvFile(file);
-                var result = this._employeeProjectService.FindLongestWorkingPair(parsedEmployeeProjects);
+                IEnumerable<EmployeeProject> parsedEmployeeProjects = this._csvParserService.ParseCsvFile(file);
+                IEnumerable<CommonProject> result = this._employeeProjectService.FindLongestWorkingPair(parsedEmployeeProjects);
 
                 return Ok(result);
             }

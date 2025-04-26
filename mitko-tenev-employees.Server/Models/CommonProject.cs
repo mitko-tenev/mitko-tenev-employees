@@ -2,8 +2,8 @@
 {
     public class CommonProject
     {
-        public int FirstEmployeeId { get; set; }
-        public int SecondEmployeeId { get; set; }
+        public int FirstEmployeeID { get; set; }
+        public int SecondEmployeeID { get; set; }
         public int ProjectID { get; set; }
         public int DaysWorked { get; set; }
     }
