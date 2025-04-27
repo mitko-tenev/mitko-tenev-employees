@@ -9,7 +9,7 @@
   - (optional) Visual Studio - to run the app: https://visualstudio.microsoft.com/downloads/
 
 ## To run the app
-1. Clone this repo: `https://github.com/mitko-tenev/mitko-tenev-employees.git`
+1. Clone this repo: `git clone https://github.com/mitko-tenev/mitko-tenev-employees.git`
 2. Enter the `mitko-tenev-employees` directory
 3. Open the project with `Visual Studio` by clicking on the `mitko-tenev-employees.sln` or execute the following commands:
      1. `cd mitko-tenev-employees.Server`
