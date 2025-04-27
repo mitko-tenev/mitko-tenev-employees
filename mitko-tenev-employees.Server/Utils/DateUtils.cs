@@ -2,7 +2,7 @@
 {
     public static class DateUtils
     {
-        public static string[] dateParseFormats =
+        public static string[] DATE_PARSING_FORMATS =
         {
             "yyyy-MM-dd",
             "yyyy/MM/dd",

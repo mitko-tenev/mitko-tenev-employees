@@ -3,7 +3,6 @@ using mitko_tenev_employees.Server.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// TODO: Rename policy
 var EmployeesFrontendAppOrigins = "_employeesFrontendAppOrigins";
 var frontendUrl = builder.Configuration.GetValue<string>("FrontendUrl");
 builder.Services.AddCors(options =>
