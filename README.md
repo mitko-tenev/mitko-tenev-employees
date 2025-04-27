@@ -2,7 +2,7 @@
 
 ## Before running the application
 
-**Make sure to have .NET 8.0 SDK and Node.js installed before running this application.**
+**Since the app is built with .NET and Angular make sure to have .NET 8.0 SDK and Node.js installed before running it.**
 - Download links:
   - .NET SDK - https://dotnet.microsoft.com/en-us/download/dotnet/8.0
   - Node.js - https://nodejs.org/
@@ -18,8 +18,10 @@
      4. `dotnet run`
      5. If a browser window does not open automatically, go to [https://localhost:51615/](https://localhost:51615/)
 4. Here are several CSVs with test data for testing purposes:
-TODO
-
+- https://raw.githubusercontent.com/mitko-tenev/mitko-tenev-employees/refs/heads/main/data/employee_project_data.csv
+- https://raw.githubusercontent.com/mitko-tenev/mitko-tenev-employees/refs/heads/main/data/randomized_dates_employee_project_data.csv
+- https://raw.githubusercontent.com/mitko-tenev/mitko-tenev-employees/refs/heads/main/data/big_employee_project_data.csv
+  
 ## Features of the app
 - Form for uploading CSVs
 ![image](https://github.com/user-attachments/assets/a9a9611a-70d8-49ce-8030-44dac62e54e9)
