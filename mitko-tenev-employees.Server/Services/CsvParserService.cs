@@ -11,6 +11,12 @@
 
     public class CsvParserService : ICsvParserService
     {
+        /**
+         * Parses passed csv file. 
+         * Uses comma as default delimiter and trims spaces by default.
+         * Also populates DateTo property with current date if it contains NULL value.
+         * Throws InvalidCsvException for invalid CSVs.
+         */
         public List<EmployeeProject> ParseCsvFile(IFormFile file)
         {
             try

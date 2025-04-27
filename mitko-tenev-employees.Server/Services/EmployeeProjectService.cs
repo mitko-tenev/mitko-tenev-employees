@@ -13,6 +13,12 @@
             return longestCommonPairResult;
         }
 
+
+        /**
+         * Calculates common projects by first grouping all employee projects by project id.
+         * Then checking for employees with overlapping working periods.
+         * If such overlaps are found, the employees are stored in a result collection.
+         */
         private List<CommonProject> CalculateCommonProjects(IEnumerable<EmployeeProject> employeeProjects)
         {
             var result = new List<CommonProject>();
@@ -37,7 +43,9 @@
                         var overlapStart = emp1.DateFrom > emp2.DateFrom ? emp1.DateFrom : emp2.DateFrom;
                         var overlapEnd = emp1.DateTo < emp2.DateTo ? emp1.DateTo : emp2.DateTo;
 
-                        if (overlapStart <= overlapEnd)
+                        var isWorkingPeriodOverlapping = overlapStart <= overlapEnd;
+
+                        if (isWorkingPeriodOverlapping)
                         {
                             var daysWorked = (overlapEnd.Value - overlapStart).Days + 1; // +1 to include both start and end dates
 
@@ -59,6 +67,14 @@
             return result;
         }
 
+        /**
+         * Contains logic for finding longes working pair.
+         * First it groups the projects by the two employees' ids.
+         * Then it calculates the total days worked and sorts the list of projects by total days worked in descending order.
+         * Finally if there are such pair groups, it gets the first such group, orders the projects worked 
+         * on by the group in descending order and returns the resulting list.
+         * If there is no such group, an empty list is returned.
+         */
         private List<CommonProject> FindLongestWorkingPairHelper(IEnumerable<CommonProject> commonProjects)
         {
             // Group by employee pairs
@@ -75,7 +91,7 @@
             var result = pairGroups.Any()
                     ? pairGroups
                         .First().Projects
-                        .OrderByDescending(x => x.DaysWorked)
+                        .OrderByDescending(p => p.DaysWorked)
                         .ToList()
                     : new List<CommonProject>();
 
